@@ -1,11 +1,11 @@
-import { getBeef, cookBeef, getBuns, putBeefBetweenBuns } from './lib';
+import GoikoGrill from './goikoGrill';
 
 const makeBurger = nextStep => {
-    getBeef(function (beef) {
-        cookBeef(beef, function (cookedBeef) {
-            getBuns(function (buns) {
-                putBeefBetweenBuns(buns, cookedBeef, function(burger) {
-                    return burger;
+    GoikoGrill.getBeef(function (beef) {
+        GoikoGrill.cookBeef(beef, function (cookedBeef) {
+            GoikoGrill.getBuns(function (buns) {
+                GoikoGrill.putBeefBetweenBuns(buns, cookedBeef, function(burger) {
+                    return nextStep(burger);
                 })
             })
         })

@@ -1,15 +1,14 @@
 {
   "beef": {
-    "meat": "beef"
+    "food": "beef"
   },
   "cookedBeef": {
-    "meat": "cookedBeef"
+    "food": "cookedBeef"
   },
   "buns": {
-    "bread": "buns"
+    "food": "buns"
   },
   "burger": {
-    "meat": "cookedBeef",
-    "bread": "buns"
+    "food": "burger"
   }
 }
