@@ -37,7 +37,11 @@ class Burger {
     };
 
     cookBeef(beef, callback) {
-        axios.get('https://my-json-server.typicode.com/marcferret/cop-async-await/cookedBeef')
+        axios.get('https://my-json-server.typicode.com/marcferret/cop-async-await/cookedBeef', {
+                params: {
+                    meat: beef,
+                },
+            })
             .then((response) => {
                 this.runCallback(response, callback);
             });
@@ -51,7 +55,12 @@ class Burger {
     };
 
     putBeefBetweenBuns(beef, buns, callback) {
-        axios.get('https://my-json-server.typicode.com/marcferret/cop-async-await/burger')
+        axios.get('https://my-json-server.typicode.com/marcferret/cop-async-await/burger', {
+                params: {
+                    meat: beef,
+                    bread: buns,
+                },
+            })
             .then((response) => {
                 this.runCallback(response, callback);
             });

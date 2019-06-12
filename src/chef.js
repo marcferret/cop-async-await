@@ -6,7 +6,7 @@ class Chef {
         GoikoGrill.getBeef(function (beef) {
             GoikoGrill.cookBeef(beef, function (cookedBeef) {
                 GoikoGrill.getBuns(function (buns) {
-                    GoikoGrill.putBeefBetweenBuns(buns, cookedBeef, function(burger) {
+                    GoikoGrill.putBeefBetweenBuns(cookedBeef, buns, function(burger) {
                         return nextStep(burger);
                     })
                 })
