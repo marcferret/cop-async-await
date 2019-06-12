@@ -10,10 +10,21 @@ module.exports = {
     },
     module: {
         rules: [
+            // EXPOSE-LOADER
+            {
+                test: /chef\.js$/,
+                use: [{
+                    loader: 'expose-loader',
+                    options: 'Chef',
+                }],
+            },
+            // BABEL
             {
                 test: /\.js$/, // include .jsx files
                 exclude: [/node_modules/], // exclude any and all files in the node_modules folder
-                loader: 'babel-loader',
+                use: [
+                    { loader: 'babel-loader'},
+                ],
             },
         ]
     }

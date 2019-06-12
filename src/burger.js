@@ -1,6 +1,6 @@
-import axios from 'axios';
+const axios = require('axios');
 
-class GoikoGrill {
+class Burger {
 
     static createLiElement(text) {
         const li = document.createElement("li");
@@ -13,9 +13,19 @@ class GoikoGrill {
         this.burgerSteps = document.getElementById('burgerSteps');
     }
 
+    appendChildBurgerSteps(node) {
+        this.burgerSteps.append(node);
+    }
+
+    clearBurgerSteps() {
+        while (this.burgerSteps.hasChildNodes()) {
+            this.burgerSteps.removeChild(this.burgerSteps.firstChild);
+        }
+    }
+
     runCallback(response, callback) {
         const food = response.data.food;
-        this.burgerSteps.append(GoikoGrill.createLiElement(food));
+        this.burgerSteps.append(Burger.createLiElement(food));
         return callback(food);
     }
 
@@ -48,4 +58,4 @@ class GoikoGrill {
     };
 }
 
-export default new GoikoGrill();
+module.exports = Burger;

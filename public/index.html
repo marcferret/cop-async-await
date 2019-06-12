@@ -7,6 +7,16 @@
 <body>
 <h1>Mastering Async/Await</h1>
 <h2>Make and serve the burger</h2>
+<p>To make a burger, we need to go through the following steps:</p>
+<ol>
+    <li>Get ingredients (we’re gonna assume it’s a beef burger)</li>
+    <li>Cook the beef</li>
+    <li>Get burger buns</li>
+    <li>Put the cooked beef between the buns</li>
+    <li>Serve the burger</li>
+</ol>
+<button type="button" onclick="Chef.makeBurger(Chef.serveBurger);">Make a burger</button>
+<button type="button" onclick="Chef.clearTheTable();">Clear the table</button>
 <ul id="burgerSteps"></ul>
 <script src="/main.js"></script>
 </body>
