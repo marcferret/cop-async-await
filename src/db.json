@@ -1,0 +1,15 @@
+{
+  "beef": {
+    "meat": "beef"
+  },
+  "cookedBeef": {
+    "meat": "cookedBeef"
+  },
+  "buns": {
+    "bread": "buns"
+  },
+  "burger": {
+    "meat": "cookedBeef",
+    "bread": "buns"
+  }
+}
