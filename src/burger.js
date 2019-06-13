@@ -11,23 +11,15 @@ class Burger {
 
   constructor() {
     this.burgerSteps = document.getElementById('burgerSteps');
-    this.betterBurgerSteps = document.getElementById('betterBurgerSteps');
   }
 
   appendChildBurgerSteps(node) {
     this.burgerSteps.append(node);
   }
 
-  appendChildBetterBurgerSteps(node) {
-    this.betterBurgerSteps.append(node);
-  }
-
   clearBurgerSteps() {
     while (this.burgerSteps.hasChildNodes()) {
       this.burgerSteps.removeChild(this.burgerSteps.firstChild);
-    }
-    while (this.betterBurgerSteps.hasChildNodes()) {
-      this.betterBurgerSteps.removeChild(this.betterBurgerSteps.firstChild);
     }
   }
 
