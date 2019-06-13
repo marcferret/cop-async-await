@@ -23,9 +23,18 @@ class Chef {
     })
   };
 
+  static makeBetterBurger() {
+
+  };
+
   static serveBurger(burger) {
     const li = Burger.createLiElement(`Yeah, ${burger} ready to serve 🍔!`);
     GoikoGrill.appendChildBurgerSteps(li);
+  }
+
+  static serveBetterBurger(burger) {
+    const li = Burger.createLiElement(`Yeah, ${burger} ready to serve 🍔!`);
+    GoikoGrill.appendChildBetterBurgerSteps(li);
   }
 
   static clearTheTable() {
