@@ -4,7 +4,7 @@
   "description": "CoP Mastering Async/Await",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server -d",
     "build": "webpack -d"
   },
   "author": "Marc Ferret && Quique Vals",

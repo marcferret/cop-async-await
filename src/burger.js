@@ -23,35 +23,47 @@ class Burger {
         }
     }
 
-    runCallback(response, callback) {
+    runCallback(error, response, callback) {
+        if(error) {
+          return callback(error, null);
+        }
         const food = response.data.food;
         this.burgerSteps.append(Burger.createLiElement(food));
-        return callback(food);
+        return callback(null, food);
     }
 
     getBeef(callback) {
         axios.get('https://my-json-server.typicode.com/marcferret/cop-async-await/beef')
             .then((response) => {
-                this.runCallback(response, callback);
+                this.runCallback(null, response, callback);
+            })
+            .catch((error) => {
+                this.runCallback(error, null, callback);
             });
     };
 
     cookBeef(beef, callback) {
-        axios.get('https://my-json-server.typicode.com/marcferret/cop-async-await/cookedBeef', {
+        axios.get('https://my-json-server.typicode.com/marcferret/cop-async-await/cookedBeefs', {
                 params: {
                     meat: beef,
                 },
             })
-            .then((response) => {
-                this.runCallback(response, callback);
-            });
+          .then((response) => {
+            this.runCallback(null, response, callback);
+          })
+          .catch((error) => {
+            this.runCallback(error, null, callback);
+          });
     };
 
     getBuns(callback) {
         axios.get('https://my-json-server.typicode.com/marcferret/cop-async-await/buns')
-            .then((response) => {
-                this.runCallback(response, callback);
-            });
+          .then((response) => {
+            this.runCallback(null, response, callback);
+          })
+          .catch((error) => {
+            this.runCallback(error, null, callback);
+          });
     };
 
     putBeefBetweenBuns(beef, buns, callback) {
@@ -61,9 +73,12 @@ class Burger {
                     bread: buns,
                 },
             })
-            .then((response) => {
-                this.runCallback(response, callback);
-            });
+          .then((response) => {
+            this.runCallback(null, response, callback);
+          })
+          .catch((error) => {
+            this.runCallback(error, null, callback);
+          });
     };
 }
 

@@ -2,26 +2,39 @@ const Burger = require("./burger");
 const GoikoGrill = new Burger();
 
 class Chef {
-    static makeBurger(nextStep) {
-        GoikoGrill.getBeef(function (beef) {
-            GoikoGrill.cookBeef(beef, function (cookedBeef) {
-                GoikoGrill.getBuns(function (buns) {
-                    GoikoGrill.putBeefBetweenBuns(cookedBeef, buns, function(burger) {
-                        return nextStep(burger);
-                    })
-                })
-            })
+  static makeBurger(nextStep) {
+    GoikoGrill.getBeef(function (error, beef) {
+      if (error) {
+        Chef.handleError(error);
+      }
+      GoikoGrill.cookBeef(beef, function (error, cookedBeef) {
+        if (error) {
+          Chef.handleError(error);
+        }
+        GoikoGrill.getBuns(function (error, buns) {
+          GoikoGrill.putBeefBetweenBuns(cookedBeef, buns, function (error, burger) {
+            if (error) {
+              Chef.handleError(error);
+            }
+            return nextStep(burger);
+          })
         })
-    };
+      })
+    })
+  };
 
-    static serveBurger(burger) {
-        const li = Burger.createLiElement(`Yeah, ${burger} ready to serve 🍔!`);
-        GoikoGrill.appendChildBurgerSteps(li);
-    }
+  static serveBurger(burger) {
+    const li = Burger.createLiElement(`Yeah, ${burger} ready to serve 🍔!`);
+    GoikoGrill.appendChildBurgerSteps(li);
+  }
 
-    static clearTheTable() {
-        GoikoGrill.clearBurgerSteps();
-    }
+  static clearTheTable() {
+    GoikoGrill.clearBurgerSteps();
+  }
+
+  static handleError(error) {
+    console.error(error.message);
+  }
 }
 
 module.exports = Chef;
